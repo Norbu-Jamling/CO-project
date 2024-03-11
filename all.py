@@ -171,3 +171,26 @@ sw r5, 0x10000000(r0)
 
 # Attempt to perform a division by zero
 div r6, r7, r0
+
+def parse_operands(instruction):
+    opcode = instruction[:3]
+
+    if opcode == '000':  # Add
+        rd = int(instruction[3:8], 2)
+        rs1 = int(instruction[8:13], 2)
+        rs2 = int(instruction[13:], 2)
+        return rd, rs1, rs2
+    elif opcode == '010':  # Load Word
+        rt = int(instruction[3:8], 2)
+        offset = int(instruction[8:15], 2)
+        rs = int(instruction[15:], 2)
+        return rt, offset, rs
+    elif opcode == '111':  # New Instruction
+        rt = int(instruction[3:8], 2)
+        imm = int(instruction[8:], 2)
+        return rt, imm
+    elif opcode == '001':  # Subtract
+        rd = int(instruction[3:8], 2)
+        rs1 = int(instruction[8:13], 2)
+        rs2 = int(instruction[13:], 2)
+        return rd, rs1, rs2

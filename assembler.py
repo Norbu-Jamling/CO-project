@@ -58,7 +58,7 @@ def assemble_instruction(mnemonic, operands):
 
 
 
-
+'''
 # Simple Test Case
 add r1, r2, r3    # Add r2 and r3, store result in r1
 sub r4, r5, r6    # Subtract r6 from r5, store result in r4
@@ -77,3 +77,4 @@ loop_start:
     addi r18, r18, 1   # Increment r18
     j loop_start        # Jump back to loop_start
 loop_end:
+'''
